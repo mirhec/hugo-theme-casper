@@ -1,3 +1,12 @@
+    <div class="pagination">
+        <hr/>
+        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+            {{ if gt (len $taxonomy) 7 }}
+            <a href="/tags/{{ $name | urlize }}" style="font-size: {{ len $taxonomy }}pt;">{{ $name }}</a>
+            {{ end }}
+        {{ end }}
+    </div>
+
     <footer class="site-footer clearfix">
         <section class="copyright"><a href="">{{.Site.Title}}</a> {{.Site.Copyright | safeHTML}}</section>
         {{if ne .Site.Params.hideHUGOSupport true}}
